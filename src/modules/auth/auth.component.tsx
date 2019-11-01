@@ -1,7 +1,7 @@
 // Import react dependencies
 import * as React from "react";
 
-/** Create auth component */
+/** Displays auth state and logout button */
 const AuthComponent = (props: any) => {
   // Get instance of auth context
   const authContext = props.authContext;

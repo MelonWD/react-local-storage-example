@@ -1,10 +1,11 @@
+// Import react dependencies
 import * as React from "react";
 import { render } from "react-dom";
 // Import app dependencies
-import LoginPage from "./modules/login/login.page";
-
+import LoginPage from "./modules/auth/login/login.page";
 import "./styles.css";
 
+/** Render app */
 function App() {
   return (
     <div className="App">

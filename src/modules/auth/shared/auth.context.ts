@@ -8,8 +8,9 @@ export const AuthState = createPersistedState("hasAuth");
 /** Create context to store and manipulate auth state */
 export const AuthContext = () => {
   // Create auth state hook
-  const [hasAuth, setAuth] = AuthState();
+  const [hasAuth, setAuth] = AuthState(false);
 
+  // Build object to return
   return {
     // Current state of user's auth boolean
     hasAuth,
@@ -32,6 +33,7 @@ export const AuthContext = () => {
  * @returns promise from api request to login endpoint
  */
 export async function processLogin(auth) {
+  // Create api request to login endpoint with auth object
   return axios.post("https://reqres.in/api/login", auth).then(
     res => {
       // If we got a user token
