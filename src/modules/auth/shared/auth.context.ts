@@ -35,10 +35,7 @@ export async function processLogin(auth) {
   return axios.post("https://reqres.in/api/login", auth).then(
     res => {
       // If we got a user token
-      if (res["data"]["token"]) {
-        return true;
-      }
-      return false;
+      return !!res["data"]["token"];
     },
     error => {
       console.log("error", error);
