@@ -1,9 +1,12 @@
 // Import react dependencies
 import * as React from "react";
 
+/** Renders and handles logic for login form */
 function LoginForm(props: any) {
+  // Get authContext from props
   const authContext = props.authContext;
 
+  // Create form state on component
   const [form, setForm] = React.useState({
     // Successful login credentials
     email: "eve.holt@reqres.in",
@@ -11,6 +14,7 @@ function LoginForm(props: any) {
     error: ""
   });
 
+  /** Handles login form submission */
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -20,26 +24,36 @@ function LoginForm(props: any) {
         password: form.password
       })
       .then(response => {
+        // If login failed
         if (!response) {
-          setForm({ ...form, error: "Login failed, please try again" });
+          // Update error on form state
+          setForm({
+            ...form,
+            error: "Login failed, please try again"
+          });
         }
       });
   };
 
+  /** Handles email field changes */
   const handleEmailChange = event => {
+    // Updates form state
     setForm({
       ...form,
       email: event.target.value
     });
   };
 
+  /** Handles password field changes */
   const handlePasswordChange = event => {
+    // Updates form state
     setForm({
       ...form,
       password: event.target.value
     });
   };
 
+  // Renders login form component
   return (
     <div>
       <h2>Login</h2>

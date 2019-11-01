@@ -13,6 +13,7 @@ const LoginPage: React.FC = () => {
   // Render component
   return (
     <div>
+      {/* If user is logged in */}
       {authContext.hasAuth ? (
         <AuthComponent authContext={authContext} />
       ) : (
